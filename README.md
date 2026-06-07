@@ -1,19 +1,19 @@
 # Dell XPS 15 9500 OpenCore Tahoe
 
-Configuration OpenCore premium pour Dell XPS 15 9500, pensée pour une installation macOS Tahoe propre, stable et maintenable.
+Premium OpenCore configuration for the Dell XPS 15 9500, built as a clean, stable, and maintainable macOS Tahoe EFI archive.
 
-Ce dépôt archive une EFI complète, prête à servir de base de travail pour un XPS 15 9500 avec OpenCore. Elle inclut les ACPI, pilotes, kexts, ressources graphiques et la configuration principale nécessaires au boot.
+This repository contains a complete EFI folder that can be used as a working baseline for an XPS 15 9500 running OpenCore. It includes ACPI patches, drivers, kexts, boot resources, tools, and the main OpenCore configuration.
 
-## Aperçu
+## Overview
 
-- Machine cible: Dell XPS 15 9500
+- Target machine: Dell XPS 15 9500
 - Bootloader: OpenCore
-- Cible macOS: Tahoe
-- SMBIOS configuré: `MacBookPro16,4`
-- Dossier principal: `EFI/OC`
-- Configuration: `EFI/OC/config.plist`
+- Target macOS: Tahoe
+- Configured SMBIOS: `MacBookPro16,4`
+- Main folder: `EFI/OC`
+- Main configuration: `EFI/OC/config.plist`
 
-## Contenu
+## Repository Layout
 
 ```text
 EFI/
@@ -30,46 +30,45 @@ EFI/
     └── oldConfig.plist
 ```
 
-## Points forts
+## Highlights
 
-- Sélection complète de kexts pour audio, batterie, trackpad, Bluetooth, Wi-Fi, NVMe, capteurs SMC et gestion système.
-- Ressources OpenCanopy incluses pour un boot picker soigné.
-- ACPI adaptés au XPS 15 9500.
-- Archive Git propre, sans fichiers système de partition EFI.
+- Full kext set for audio, battery, trackpad, Bluetooth, Wi-Fi, NVMe, SMC sensors, and core system support.
+- OpenCanopy resources included for a polished boot picker experience.
+- ACPI files tailored for the Dell XPS 15 9500.
+- Clean Git archive without EFI partition system folders.
 
-## Avant utilisation
+## Before You Use It
 
-Cette EFI est une base spécifique à une machine. Avant de l'utiliser sur un autre XPS 15 9500, vérifiez impérativement:
+This EFI is machine-specific. Before using it on another XPS 15 9500, carefully review the following:
 
-- `PlatformInfo`: générez vos propres valeurs SMBIOS avec GenSMBIOS ou un outil équivalent.
-- `config.plist`: contrôlez les entrées ACPI, kexts et drivers avec ProperTree ou OpenCore Configurator.
-- Wi-Fi/Bluetooth: adaptez les kexts selon votre carte réseau.
-- NVRAM: nettoyez la NVRAM après tout changement majeur.
-- Sauvegarde: gardez toujours une clé USB de secours bootable.
+- `PlatformInfo`: generate your own SMBIOS values with GenSMBIOS or an equivalent tool.
+- `config.plist`: validate ACPI, kext, and driver entries with ProperTree or OpenCore Configurator.
+- Wi-Fi/Bluetooth: adjust kexts according to your wireless card.
+- NVRAM: reset NVRAM after major configuration changes.
+- Backup: always keep a bootable USB rescue EFI.
 
-## Installation rapide
+## Quick Installation
 
-1. Montez la partition EFI du disque cible.
-2. Copiez le dossier `EFI` à la racine de cette partition.
-3. Vérifiez `EFI/OC/config.plist`.
-4. Redémarrez et sélectionnez OpenCore.
-5. Après validation du boot, gardez une copie de secours de cette EFI.
+1. Mount the target disk's EFI partition.
+2. Copy the `EFI` folder to the root of that partition.
+3. Review `EFI/OC/config.plist`.
+4. Reboot and select OpenCore.
+5. Once boot is confirmed, keep a backup copy of this EFI.
 
 ## Maintenance
 
-Pour mettre à jour proprement:
+For clean updates:
 
-1. Sauvegardez l'EFI fonctionnelle.
-2. Mettez à jour OpenCore avec les binaires correspondants.
-3. Mettez à jour les kexts un par un.
-4. Relancez un snapshot ProperTree si nécessaire.
-5. Testez sur une clé USB avant de remplacer l'EFI principale.
+1. Back up the working EFI.
+2. Update OpenCore with the matching release binaries.
+3. Update kexts one at a time.
+4. Refresh the ProperTree snapshot if needed.
+5. Test from a USB drive before replacing the main EFI.
 
-## Avertissement
+## Disclaimer
 
-Cette configuration est fournie comme archive personnelle et base technique. Un mauvais SMBIOS, un kext incompatible ou une configuration NVRAM incorrecte peut empêcher le démarrage. Testez toujours avant de déployer sur votre partition principale.
+This configuration is provided as a personal archive and technical baseline. Incorrect SMBIOS values, incompatible kexts, or invalid NVRAM settings can prevent the system from booting. Always test before deploying to your primary EFI partition.
 
-## Crédit
+## Credit
 
-Projet maintenu par [BenDevelopment](https://github.com/BenDevelopment).
-
+Maintained by [BenDevelopment](https://github.com/BenDevelopment).
